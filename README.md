@@ -54,8 +54,11 @@
 6. 掛載 SD
 
     - `sudo mkdir -p /media/user/boot`
+      
     - `sudo mount /dev/sdb1 /media/user/boot`
+      
     - `sudo mkdir -p /media/user/root`
+      
     - `sudo mount /dev/sdb2 /media/user/root`
 
     **注意：** "user" 要換成你的使用者名字
@@ -63,13 +66,17 @@
 7. 複製 boot files 到 SD 的 boot 分區
 
     - `cd zedboard.ubuntu/boot`
+      
     - `sudo cp ./* /media/user/boot`
+      
     - `sync`
 
 8. 下載 Ubuntu 並解壓到 SD 的 root 分區
 
     - `wget https://releases.linaro.org/archive/ubuntu/images/developer/15.12/linaro-vivid-developer-20151215-714.tar.gz`
+      
     - `sudo tar xpf linaro-vivid-developer-20151215-714.tar.gz --strip-components=1 -C /media/user/root`
+      
     - `sync`
 
 9. 設定跳線, 使 ZedBoard 以 SD 卡開機, 並連接 UART USB 至電腦, 大功告成！
@@ -78,6 +85,8 @@
    
     重新啟動 ZedBoard 並取消 autoboot 進入 u-boot 輸入下列指令
    
-    - env default -a
-    - env save
-    - reset
+    - `env default -a`
+      
+    - `env save`
+      
+    - `reset`
